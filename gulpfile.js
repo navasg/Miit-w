@@ -26,14 +26,14 @@ const AUTOPREFIXER_BROWSERS = [
 gulp.task('styles', function () {
   return gulp.src('./src/css/main.css')
     // Auto-prefix css styles for cross browser compatibility
-    .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe(autoprefixer({ browsers: AUTOPREFIXER_BROWSERS }))
     // Minify the file
     .pipe(csso())
     // Output
     .pipe(gulp.dest('./dist/css'))
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
   return gulp.src('./src/js/**/*.js')
     // Minify the file
     .pipe(uglify())
@@ -41,7 +41,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./dist/js'))
 });
 
-gulp.task('pages', function() {
+gulp.task('pages', function () {
   return gulp.src(['*.html'])
     .pipe(htmlmin({
       collapseWhitespace: true,
@@ -69,6 +69,5 @@ gulp.task('default', ['clean'], function () {
     'styles',
     'scripts',
     'pages',
-    // 'images'
   );
 });
